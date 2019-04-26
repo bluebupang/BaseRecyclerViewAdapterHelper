@@ -34,23 +34,24 @@ public class DataBindingUseAdapter extends BaseQuickAdapter<Movie, DataBindingUs
         binding.setVariable(BR.movie, item);
         binding.setVariable(BR.presenter, mPresenter);
         binding.executePendingBindings();
-        switch (helper.getLayoutPosition() %
-                2) {
+        switch (helper.getLayoutPosition() % 2) {
             case 0:
                 helper.setImageResource(R.id.iv, R.mipmap.m_img1);
                 break;
             case 1:
                 helper.setImageResource(R.id.iv, R.mipmap.m_img2);
                 break;
+            default:
+                break;
 
         }
     }
 
-  /*  @Override
-    protected MovieViewHolder createBaseViewHolder(View view) {
-        return new MovieViewHolder(view);
-    }
-*/
+    /*  @Override
+      protected MovieViewHolder createBaseViewHolder(View view) {
+          return new MovieViewHolder(view);
+      }
+  */
     @Override
     protected View getItemView(int layoutResId, ViewGroup parent) {
         ViewDataBinding binding = DataBindingUtil.inflate(mLayoutInflater, layoutResId, parent, false);
@@ -62,7 +63,7 @@ public class DataBindingUseAdapter extends BaseQuickAdapter<Movie, DataBindingUs
         return view;
     }
 
-    public class MovieViewHolder extends BaseViewHolder {
+    public static class MovieViewHolder extends BaseViewHolder {
 
         public MovieViewHolder(View view) {
             super(view);
